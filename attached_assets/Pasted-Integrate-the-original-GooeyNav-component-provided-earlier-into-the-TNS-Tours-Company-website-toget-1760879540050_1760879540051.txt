@@ -1,0 +1,84 @@
+Integrate the original GooeyNav component provided earlier into the TNS Tours Company website, together with the company logo, and make the entire navbar scroll-aware (hides when scrolling down and reappears when scrolling up).
+
+1. Create or edit src/components/common/Navbar.tsx (do NOT duplicate):
+
+   import { useState, useEffect } from "react";
+   import Image from "next/image";
+   import GooeyNav from "./GooeyNav";
+
+   const items = [
+     { label: "Home", href: "#hero" },
+     { label: "About", href: "#about" },
+     { label: "Destinations", href: "#destinations" },
+     { label: "Packages", href: "#packages" },
+     { label: "Team", href: "#team" },
+     { label: "Travel Tips", href: "#travel-tips" },
+     { label: "FAQ", href: "#faq" },
+     { label: "Contact", href: "#contact" },
+   ];
+
+   export default function Navbar() {
+     const [visible, setVisible] = useState(true);
+     const [lastScrollY, setLastScrollY] = useState(0);
+
+     useEffect(() => {
+       const handleScroll = () => {
+         const currentY = window.scrollY;
+         if (currentY > lastScrollY && currentY > 50) setVisible(false); // hide on scroll down
+         else setVisible(true); // show on scroll up
+         setLastScrollY(currentY);
+       };
+       window.addEventListener("scroll", handleScroll);
+       return () => window.removeEventListener("scroll", handleScroll);
+     }, [lastScrollY]);
+
+     return (
+       <div
+         className={`absolute top-0 left-0 w-full flex items-center justify-between px-6 py-4 z-50 transition-transform duration-500 ${
+           visible ? "translate-y-0 opacity-100" : "-translate-y-24 opacity-0"
+         }`}
+       >
+         {/* Logo */}
+         <a href="#hero" className="flex items-center gap-3">
+           <Image
+             src="/images/LOGO NBG.png"
+             alt="TNS Tours Company Logo"
+             width={60}
+             height={60}
+             priority
+             className="object-contain"
+           />
+           <span className="text-sand text-lg font-semibold hidden sm:block">
+             TNS Tours Company
+           </span>
+         </a>
+
+         {/* Original GooeyNav */}
+         <div className="flex items-center">
+           <GooeyNav
+             items={items}
+             particleCount={15}
+             particleDistances={[90, 10]}
+             particleR={100}
+             initialActiveIndex={0}
+             animationTime={600}
+             timeVariance={300}
+             colors={[1, 2, 3, 1, 2, 3, 1, 4]}
+           />
+         </div>
+       </div>
+     );
+   }
+
+2. In src/app/layout.tsx:
+   import Navbar from "@/components/common/Navbar";
+   Place it above {children} inside <body>:
+     <body className="bg-night text-sand">
+       <Navbar />
+       {children}
+     </body>
+
+3. Keep the navbar transparent; do not add any background color.
+   Ensure it hides smoothly when scrolling down and reappears when scrolling up.
+
+4. Do NOT alter GooeyNav’s internal logic or styles — only wrap it with scroll detection logic as above.

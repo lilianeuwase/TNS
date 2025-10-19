@@ -17,15 +17,16 @@ const items = [
 ];
 
 export default function Navbar() {
-  const [show, setShow] = useState(true);
+  const [visible, setVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > lastScrollY) setShow(false);
-      else setShow(true);
-      setLastScrollY(window.scrollY);
+      const currentY = window.scrollY;
+      if (currentY > lastScrollY && currentY > 50) setVisible(false);
+      else setVisible(true);
+      setLastScrollY(currentY);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -46,14 +47,10 @@ export default function Navbar() {
 
   return (
     <>
-      <motion.nav
-        className="fixed top-0 left-0 w-full flex items-center justify-between z-50 bg-transparent px-6 py-4"
-        initial={{ y: 0, opacity: 1 }}
-        animate={{
-          y: show ? 0 : -100,
-          opacity: show ? 1 : 0,
-          transition: { duration: 0.4, ease: 'easeOut' },
-        }}
+      <nav
+        className={`fixed top-0 left-0 w-full flex items-center justify-between px-6 py-4 z-50 bg-transparent transition-transform duration-500 ease-out ${
+          visible ? 'translate-y-0 opacity-100' : '-translate-y-24 opacity-0'
+        }`}
       >
         {/* Logo */}
         <a href="#hero" className="flex items-center gap-3">
@@ -113,7 +110,7 @@ export default function Navbar() {
             )}
           </svg>
         </button>
-      </motion.nav>
+      </nav>
 
       {/* Mobile Menu */}
       <AnimatePresence>
