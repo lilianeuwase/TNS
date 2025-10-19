@@ -1,0 +1,92 @@
+Integrate a transparent scroll-aware navbar into the TNS Tours Company website that includes the logo and GooeyNav, hides on scroll down, and reappears on scroll up.
+
+1. Install the GooeyNav component:
+   npx shadcn@latest add https://reactbits.dev/r/GooeyNav-JS-CSS
+
+2. Create or edit src/components/common/Navbar.tsx (do NOT duplicate):
+   import { motion } from "framer-motion";
+   import { useEffect, useState } from "react";
+   import Image from "next/image";
+   import GooeyNav from "./GooeyNav";
+
+   const items = [
+     { label: "Home", href: "#hero" },
+     { label: "About", href: "#about" },
+     { label: "Destinations", href: "#destinations" },
+     { label: "Packages", href: "#packages" },
+     { label: "Team", href: "#team" },
+     { label: "Travel Tips", href: "#travel-tips" },
+     { label: "FAQ", href: "#faq" },
+     { label: "Contact", href: "#contact" },
+   ];
+
+   export default function Navbar() {
+     const [show, setShow] = useState(true);
+     const [lastScrollY, setLastScrollY] = useState(0);
+
+     useEffect(() => {
+       const handleScroll = () => {
+         if (window.scrollY > lastScrollY) setShow(false);
+         else setShow(true);
+         setLastScrollY(window.scrollY);
+       };
+       window.addEventListener("scroll", handleScroll);
+       return () => window.removeEventListener("scroll", handleScroll);
+     }, [lastScrollY]);
+
+     return (
+       <motion.nav
+         className="absolute top-0 left-0 w-full flex items-center justify-between z-50 bg-transparent px-6 py-4"
+         initial={{ y: 0, opacity: 1 }}
+         animate={{
+           y: show ? 0 : -100,
+           opacity: show ? 1 : 0,
+           transition: { duration: 0.4, ease: 'easeOut' },
+         }}
+       >
+         {/* Logo */}
+         <a href="#hero" className="flex items-center gap-3">
+           <Image
+             src="/images/LOGO NBG.png"
+             alt="TNS Tours Company Logo"
+             width={60}
+             height={60}
+             priority
+             className="object-contain"
+           />
+           <span className="text-sand text-lg font-semibold hidden sm:block">
+             TNS Tours Company
+           </span>
+         </a>
+
+         {/* Gooey Navigation */}
+         <div className="flex items-center">
+           <GooeyNav
+             items={items}
+             particleCount={15}
+             particleDistances={[90, 10]}
+             particleR={100}
+             initialActiveIndex={0}
+             animationTime={600}
+             timeVariance={300}
+             colors={[1, 2, 3, 1, 2, 3, 1, 4]}
+           />
+         </div>
+       </motion.nav>
+     );
+   }
+
+3. In src/app/layout.tsx:
+   - Import Navbar:  import Navbar from "@/components/common/Navbar";
+   - Render it above {children}:
+       <body className="bg-night text-sand">
+         <Navbar />
+         {children}
+       </body>
+
+4. Requirements:
+   - Navbar background must remain transparent.
+   - Hides when scrolling down, reappears on scroll up.
+   - Works smoothly with Lenis scroll.
+   - Fully responsive: stack logo and menu on small screens.
+   - Follows all project rules (small modular files, no duplication, responsive, production-safe, no emojis, icons on left if added later).

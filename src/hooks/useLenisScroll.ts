@@ -15,6 +15,9 @@ export function useLenisScroll() {
     });
 
     lenisRef.current = lenis;
+    (window as any).lenis = lenis;
+
+    document.documentElement.classList.add('lenis');
 
     function raf(time: number) {
       lenis.raf(time);
@@ -25,6 +28,7 @@ export function useLenisScroll() {
 
     return () => {
       lenis.destroy();
+      document.documentElement.classList.remove('lenis');
     };
   }, []);
 

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "../styles/globals.css";
 import ClientLayout from "@/components/common/ClientLayout";
+import Navbar from "@/components/common/Navbar";
 
 export const metadata: Metadata = {
   title: "TNS Tours Company | Explore Rwanda",
@@ -13,8 +14,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en" className="dark" suppressHydrationWarning>
       <body className="bg-night text-sand">
+        <Navbar />
         <ClientLayout>{children}</ClientLayout>
       </body>
     </html>

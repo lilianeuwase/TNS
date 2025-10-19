@@ -3,6 +3,7 @@
   \********************************************************************************************************************************************************************************************************************************************************************/
 /*! tailwindcss v4.1.14 | MIT License | https://tailwindcss.com */
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700&display=swap');
+@layer properties;
 .pointer-events-none {
   pointer-events: none;
 }
@@ -21,6 +22,9 @@
 .z-10 {
   z-index: 10;
 }
+.z-40 {
+  z-index: 40;
+}
 .z-50 {
   z-index: 50;
 }
@@ -33,6 +37,9 @@
 .h-full {
   height: 100%;
 }
+.h-screen {
+  height: 100vh;
+}
 .min-h-screen {
   min-height: 100vh;
 }
@@ -41,6 +48,9 @@
 }
 .w-full {
   width: 100%;
+}
+.flex-col {
+  flex-direction: column;
 }
 .items-center {
   align-items: center;
@@ -54,18 +64,83 @@
 .overflow-hidden {
   overflow: hidden;
 }
+.overflow-x-hidden {
+  overflow-x: hidden;
+}
+.rounded-full {
+  border-radius: calc(infinity * 1px);
+}
+.bg-transparent {
+  background-color: transparent;
+}
+.object-contain {
+  object-fit: contain;
+}
 .object-cover {
   object-fit: cover;
+}
+.text-left {
+  text-align: left;
 }
 .transition {
   transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to, opacity, box-shadow, transform, translate, scale, rotate, filter, -webkit-backdrop-filter, backdrop-filter, display, content-visibility, overlay, pointer-events;
   transition-timing-function: var(--tw-ease, ease);
   transition-duration: var(--tw-duration, 0s);
 }
+.transition-colors {
+  transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to;
+  transition-timing-function: var(--tw-ease, ease);
+  transition-duration: var(--tw-duration, 0s);
+}
+.duration-200 {
+  --tw-duration: 200ms;
+  transition-duration: 200ms;
+}
 html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+  overscroll-behavior: none;
   background-color: #1F1D20;
   color: #A79986;
   font-family: 'Manrope', sans-serif;
-  scroll-behavior: smooth;
+}
+html.lenis {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+  overflow-x: hidden !important;
+  overscroll-behavior: none !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-smooth body {
+  overflow-x: hidden;
+  overscroll-behavior: none;
+}
+* {
+  box-sizing: border-box;
+}
+#__next {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  overscroll-behavior: none;
+  width: 100%;
+  min-height: 100vh;
+}
+@property --tw-duration {
+  syntax: "*";
+  inherits: false;
+}
+@layer properties {
+  @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
+    *, ::before, ::after, ::backdrop {
+      --tw-duration: initial;
+    }
+  }
 }
 

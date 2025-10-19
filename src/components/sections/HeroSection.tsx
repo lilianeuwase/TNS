@@ -37,7 +37,7 @@ export default function HeroSection() {
     <section
       id="hero"
       ref={sectionRef}
-      className="relative min-h-screen bg-night flex items-center justify-between overflow-hidden"
+      className="relative min-h-screen bg-night flex overflow-hidden"
     >
       <div
         ref={overlayRef}
@@ -48,7 +48,7 @@ export default function HeroSection() {
         initial={{ opacity: 0, x: -50 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8, delay: 1.5 }}
-        className="w-1/2 flex items-center pl-8 md:pl-16 lg:pl-24 pr-8 md:pr-12 z-0"
+        className="w-1/2 flex items-center justify-center pl-8 md:pl-16 lg:pl-24 pr-8 md:pr-12 z-0"
       >
         <div>
           <h1 className="text-5xl md:text-6xl font-bold text-sand mb-6 leading-tight">

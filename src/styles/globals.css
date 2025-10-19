@@ -5,8 +5,44 @@
 @tailwind utilities;
 
 html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+  overscroll-behavior: none;
   background-color: #1F1D20;
   color: #A79986;
   font-family: 'Manrope', sans-serif;
-  scroll-behavior: smooth;
+}
+
+html.lenis {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+  overflow-x: hidden !important;
+  overscroll-behavior: none !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-smooth body {
+  overflow-x: hidden;
+  overscroll-behavior: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+#__next {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  overscroll-behavior: none;
+  width: 100%;
+  min-height: 100vh;
 }
