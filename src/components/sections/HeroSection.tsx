@@ -65,9 +65,11 @@ export default function HeroSection() {
           transition={{ duration: 0.8, delay: 1.5 }}
           className="w-1/2 h-[600px] bg-charcoal rounded-lg overflow-hidden relative"
         >
-          <div className="absolute inset-0 flex items-center justify-center text-sand/50">
-            [Image/Video Placeholder]
-          </div>
+          <img 
+            src="/images/Car Safari.jpg" 
+            alt="Car Safari in Rwanda" 
+            className="absolute inset-0 w-full h-full object-cover"
+          />
         </motion.div>
       </div>
     </section>
