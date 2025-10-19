@@ -24,20 +24,11 @@
 .z-50 {
   z-index: 50;
 }
-.container {
-  width: 100%;
-}
-.mx-auto {
-  margin-inline: auto;
-}
 .flex {
   display: flex;
 }
 .hidden {
   display: none;
-}
-.h-\[600px\] {
-  height: 600px;
 }
 .h-full {
   height: 100%;

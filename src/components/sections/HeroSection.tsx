@@ -44,34 +44,34 @@ export default function HeroSection() {
         className="absolute inset-0 bg-night z-10"
       />
 
-      <div className="container mx-auto px-8 flex items-center justify-between w-full z-0">
-        <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, delay: 1.5 }}
-          className="w-1/2 pr-12"
-        >
+      <motion.div
+        initial={{ opacity: 0, x: -50 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8, delay: 1.5 }}
+        className="w-1/2 flex items-center pl-8 md:pl-16 lg:pl-24 pr-8 md:pr-12 z-0"
+      >
+        <div>
           <h1 className="text-5xl md:text-6xl font-bold text-sand mb-6 leading-tight">
             Discover Rwanda with TNS Tours Company
           </h1>
           <p className="text-xl text-sand/80">
             Your journey to the Land of a Thousand Hills begins here.
           </p>
-        </motion.div>
+        </div>
+      </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, x: 50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, delay: 1.5 }}
-          className="w-1/2 h-[600px] bg-charcoal rounded-lg overflow-hidden relative"
-        >
-          <img 
-            src="/images/Car Safari.jpg" 
-            alt="Car Safari in Rwanda" 
-            className="absolute inset-0 w-full h-full object-cover"
-          />
-        </motion.div>
-      </div>
+      <motion.div
+        initial={{ opacity: 0, x: 50 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8, delay: 1.5 }}
+        className="w-1/2 min-h-screen bg-charcoal overflow-hidden relative z-0"
+      >
+        <img 
+          src="/images/Car Safari.jpg" 
+          alt="Car Safari in Rwanda" 
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+      </motion.div>
     </section>
   );
 }

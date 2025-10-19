@@ -47,6 +47,7 @@ src/
 ### Technical Standards
 9. **Production packages only** - Only use production-ready packages: Next.js router, GSAP, Framer Motion, Tailwind, Lenis. No prototype libraries.
 10. **TypeScript** - Keep code fully TypeScript-compatible and clean.
+11. **Edit, don't replace** - When making changes, always edit existing code inside relevant files. Never create replacement files or duplicate components unless specifically instructed. Keep existing structure, imports, and logic intact — modify only necessary parts.
 
 ## Current Features
 - Dark theme with TNS brand colors
