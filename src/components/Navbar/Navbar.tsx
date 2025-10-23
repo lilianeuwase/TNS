@@ -59,7 +59,7 @@ const Navbar = () => {
     return (
         <div className={themeStyles.navbarTheme}>
             <div
-                className={`navbar ${Styles.navbar} ${
+                className={`${Styles.navbar} ${
                     burgerMenuActive ? Styles.active : ""
                 }`}
             >

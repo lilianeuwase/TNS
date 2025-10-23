@@ -10,11 +10,8 @@ gsap.registerPlugin(ScrollTrigger);
 export default function HeroSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const overlayRef = useRef<HTMLDivElement>(null);
-  const heroTextRef = useRef<HTMLDivElement>(null);
-  const imageContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Overlay animation (existing)
     if (overlayRef.current) {
       gsap.to(overlayRef.current, {
         yPercent: -100,
@@ -24,47 +21,16 @@ export default function HeroSection() {
       });
     }
 
-    // Delay ScrollTrigger setup to wait for navbar to render (2200ms + small buffer)
-    const scrollTriggerTimer = setTimeout(() => {
-      if (sectionRef.current && heroTextRef.current && imageContainerRef.current) {
-        // Check if mobile (disable pinning on small screens)
-        const isMobile = window.innerWidth < 768;
-        
-        const scrollTriggerConfig = {
+    if (sectionRef.current) {
+      gsap.to(sectionRef.current, {
+        scrollTrigger: {
           trigger: sectionRef.current,
           start: "top top",
-          end: "+=100%", // Scroll distance for animation
+          end: "bottom top",
           scrub: true,
-          pin: !isMobile ? sectionRef.current : false, // Pin on desktop only
-          pinSpacing: false, // No extra space
-        };
-
-        // Animate navbar
-        gsap.to(".navbar", {
-          y: -100,
-          opacity: 0,
-          scrollTrigger: scrollTriggerConfig,
-        });
-
-        // Animate hero text
-        gsap.to(heroTextRef.current, {
-          y: -50,
-          opacity: 0,
-          scrollTrigger: scrollTriggerConfig,
-        });
-
-        // Animate image container to full width
-        gsap.to(imageContainerRef.current, {
-          width: "100%",
-          scrollTrigger: scrollTriggerConfig,
-        });
-      }
-    }, 2400);
-
-    return () => {
-      clearTimeout(scrollTriggerTimer);
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-    };
+        },
+      });
+    }
   }, []);
 
   return (
@@ -81,7 +47,7 @@ export default function HeroSection() {
         transition={{ duration: 0.8, delay: 1.5 }}
         className="w-2/5 flex items-center justify-center pl-8 md:pl-16 lg:pl-24 pr-8 md:pr-12 z-0"
       >
-        <div ref={heroTextRef}>
+        <div>
           <h1 className="text-5xl md:text-7xl font-bold text-sand mb-10 leading-tight">
             Discover Rwanda with TNS Tours Company
           </h1>
@@ -92,7 +58,7 @@ export default function HeroSection() {
       </motion.div>
 
       {/* Right image block — reveal from LEFT → RIGHT (true mask effect) */}
-      <div ref={imageContainerRef} className="w-3/5 min-h-screen bg-charcoal overflow-hidden relative z-0">
+      <div className="w-3/5 min-h-screen bg-charcoal overflow-hidden relative z-0">
         {/* The image stays still behind */}
         <img
           src="/images/Car Safari3.jpg"
