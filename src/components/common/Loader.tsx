@@ -10,7 +10,7 @@ export default function Loader() {
         initial={{ x: "-120%" }} // starts completely off-screen
         animate={{ x: "120vw" }} // exits fully to the right
         transition={{
-          duration: 6, // slower, more realistic safari drive
+          duration: 9, // slower, more realistic safari drive
           repeat: Infinity,
           ease: "easeInOut",
         }}
