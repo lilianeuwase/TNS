@@ -737,8 +737,15 @@ video {
 .m-0 {
   margin: 0px;
 }
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
 .mb-10 {
   margin-bottom: 2.5rem;
+}
+.mb-6 {
+  margin-bottom: 1.5rem;
 }
 .mt-4 {
   margin-top: 1rem;
@@ -772,6 +779,9 @@ video {
 }
 .w-full {
   width: 100%;
+}
+.max-w-2xl {
+  max-width: 42rem;
 }
 .flex-col {
   flex-direction: column;
@@ -810,11 +820,22 @@ video {
 .p-0 {
   padding: 0px;
 }
+.px-8 {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
 .pl-8 {
   padding-left: 2rem;
 }
 .pr-8 {
   padding-right: 2rem;
+}
+.text-center {
+  text-align: center;
+}
+.text-4xl {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
 }
 .text-5xl {
   font-size: 3rem;
@@ -914,6 +935,11 @@ html.lenis {
 
   .md\:pr-12 {
     padding-right: 3rem;
+  }
+
+  .md\:text-6xl {
+    font-size: 3.75rem;
+    line-height: 1;
   }
 
   .md\:text-7xl {

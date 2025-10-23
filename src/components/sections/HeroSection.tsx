@@ -24,37 +24,45 @@ export default function HeroSection() {
       });
     }
 
-    // ScrollTrigger animations
-    if (sectionRef.current && heroTextRef.current && imageContainerRef.current) {
-      const scrollTriggerConfig = {
-        trigger: sectionRef.current,
-        start: "top top",
-        end: "bottom top",
-        scrub: true,
-      };
+    // Delay ScrollTrigger setup to wait for navbar to render (2200ms + small buffer)
+    const scrollTriggerTimer = setTimeout(() => {
+      if (sectionRef.current && heroTextRef.current && imageContainerRef.current) {
+        // Check if mobile (disable pinning on small screens)
+        const isMobile = window.innerWidth < 768;
+        
+        const scrollTriggerConfig = {
+          trigger: sectionRef.current,
+          start: "top top",
+          end: "+=100%", // Scroll distance for animation
+          scrub: true,
+          pin: !isMobile ? sectionRef.current : false, // Pin on desktop only
+          pinSpacing: false, // No extra space
+        };
 
-      // Animate navbar
-      gsap.to(".navbar", {
-        y: -100,
-        opacity: 0,
-        scrollTrigger: scrollTriggerConfig,
-      });
+        // Animate navbar
+        gsap.to(".navbar", {
+          y: -100,
+          opacity: 0,
+          scrollTrigger: scrollTriggerConfig,
+        });
 
-      // Animate hero text
-      gsap.to(heroTextRef.current, {
-        y: -50,
-        opacity: 0,
-        scrollTrigger: scrollTriggerConfig,
-      });
+        // Animate hero text
+        gsap.to(heroTextRef.current, {
+          y: -50,
+          opacity: 0,
+          scrollTrigger: scrollTriggerConfig,
+        });
 
-      // Animate image container to full width
-      gsap.to(imageContainerRef.current, {
-        width: "100%",
-        scrollTrigger: scrollTriggerConfig,
-      });
-    }
+        // Animate image container to full width
+        gsap.to(imageContainerRef.current, {
+          width: "100%",
+          scrollTrigger: scrollTriggerConfig,
+        });
+      }
+    }, 2400);
 
     return () => {
+      clearTimeout(scrollTriggerTimer);
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
   }, []);
