@@ -37,7 +37,7 @@ export default function Loader() {
       </motion.div>
 
       {/* Loading text */}
-      <motion.p
+      {/* <motion.p
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{
@@ -49,7 +49,7 @@ export default function Loader() {
         className="text-sand text-lg md:text-xl mt-60 font-semibold tracking-widest"
       >
         Loading...
-      </motion.p>
+      </motion.p> */}
     </div>
   );
 }

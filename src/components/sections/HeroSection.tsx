@@ -10,8 +10,11 @@ gsap.registerPlugin(ScrollTrigger);
 export default function HeroSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const overlayRef = useRef<HTMLDivElement>(null);
+  const heroTextRef = useRef<HTMLDivElement>(null);
+  const imageContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    // Overlay animation (existing)
     if (overlayRef.current) {
       gsap.to(overlayRef.current, {
         yPercent: -100,
@@ -21,16 +24,39 @@ export default function HeroSection() {
       });
     }
 
-    if (sectionRef.current) {
-      gsap.to(sectionRef.current, {
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top top",
-          end: "bottom top",
-          scrub: true,
-        },
+    // ScrollTrigger animations
+    if (sectionRef.current && heroTextRef.current && imageContainerRef.current) {
+      const scrollTriggerConfig = {
+        trigger: sectionRef.current,
+        start: "top top",
+        end: "bottom top",
+        scrub: true,
+      };
+
+      // Animate navbar
+      gsap.to(".navbar", {
+        y: -100,
+        opacity: 0,
+        scrollTrigger: scrollTriggerConfig,
+      });
+
+      // Animate hero text
+      gsap.to(heroTextRef.current, {
+        y: -50,
+        opacity: 0,
+        scrollTrigger: scrollTriggerConfig,
+      });
+
+      // Animate image container to full width
+      gsap.to(imageContainerRef.current, {
+        width: "100%",
+        scrollTrigger: scrollTriggerConfig,
       });
     }
+
+    return () => {
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    };
   }, []);
 
   return (
@@ -47,7 +73,7 @@ export default function HeroSection() {
         transition={{ duration: 0.8, delay: 1.5 }}
         className="w-2/5 flex items-center justify-center pl-8 md:pl-16 lg:pl-24 pr-8 md:pr-12 z-0"
       >
-        <div>
+        <div ref={heroTextRef}>
           <h1 className="text-5xl md:text-7xl font-bold text-sand mb-10 leading-tight">
             Discover Rwanda with TNS Tours Company
           </h1>
@@ -58,7 +84,7 @@ export default function HeroSection() {
       </motion.div>
 
       {/* Right image block — reveal from LEFT → RIGHT (true mask effect) */}
-      <div className="w-3/5 min-h-screen bg-charcoal overflow-hidden relative z-0">
+      <div ref={imageContainerRef} className="w-3/5 min-h-screen bg-charcoal overflow-hidden relative z-0">
         {/* The image stays still behind */}
         <img
           src="/images/Car Safari3.jpg"
