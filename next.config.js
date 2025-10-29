@@ -1,14 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // 👇 ensures Next.js generates static HTML for Render
   output: 'export',
-
-  // 👇 disables the CSS/JS minifier that's crashing on Render
+  images: { unoptimized: true },
   swcMinify: false,
-
-  // 👇 allows using Next.js Image component without optimization server
-  images: {
-    unoptimized: true,
+  webpack: (config) => {
+    // 👇 turn off CSS minimization completely
+    config.optimization.minimize = false;
+    return config;
   },
 };
 
