@@ -4,24 +4,25 @@ import Image from "next/image";
 
 export default function Loader() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-night overflow-hidden relative">
-      {/* Car moving + bouncing */}
+    <div className="flex items-center justify-center min-h-screen bg-night overflow-hidden relative">
+      {/* Centered car with subtle horizontal idle motion */}
       <motion.div
-        initial={{ x: "-120%" }} // starts completely off-screen
-        animate={{ x: "120vw" }} // exits fully to the right
+        className="absolute left-1/2 -translate-x-1/2 w-24 md:w-32"
+        initial={{ x: "-2vw" }} // start slightly left of center
+        animate={{ x: "2vw" }} // move slightly right of center
         transition={{
-          duration: 6, // slower, more realistic safari drive
+          duration: 2.5,
           repeat: Infinity,
+          repeatType: "reverse",
           ease: "easeInOut",
         }}
-        className="absolute bottom-1/3 w-20 md:w-28"
       >
         <motion.div
           animate={{
-            y: [0, -6, 0, 3, 0], // subtle bounce pattern
+            y: [0, -6, 0, 3, 0], // subtle bounce
           }}
           transition={{
-            duration: 0.9,
+            duration: 1.2,
             repeat: Infinity,
             ease: "easeInOut",
           }}
@@ -29,27 +30,12 @@ export default function Loader() {
           <Image
             src="/images/car-icon.png"
             alt="Loading Car"
-            width={100}
-            height={100}
-            className="object-contain drop-shadow-md"
+            width={120}
+            height={120}
+            className="object-contain drop-shadow-lg"
           />
         </motion.div>
       </motion.div>
-
-      {/* Loading text */}
-      <motion.p
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{
-          duration: 1,
-          delay: 0.5,
-          repeat: Infinity,
-          repeatType: "reverse",
-        }}
-        className="text-sand text-lg md:text-xl mt-60 font-semibold tracking-widest"
-      >
-        Loading...
-      </motion.p>
     </div>
   );
 }

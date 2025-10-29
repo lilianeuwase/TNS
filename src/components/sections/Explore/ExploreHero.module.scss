@@ -1,0 +1,246 @@
+/* ——— Palette (from your dark theme) ——— */
+$ink: #0d0c0f;          // base background
+$ink-2: #1f1d20;        // deeper tones
+$sand: #f0e6d2;         // headings / light text
+$linen: #a79986;        // body text
+$gold: #d9b97d;         // accent / hover
+
+.exploreSection {
+  position: relative;
+  min-height: 120vh; /* tall for the cinematic scroll reveal */
+  padding: clamp(72px, 8vw, 120px) 24px;
+  background: $ink;
+  overflow: hidden;
+}
+
+.backdrop {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.mist {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(120% 80% at 50% 10%, rgba(255,255,255,0.06), rgba(0,0,0,0) 60%);
+  mix-blend-mode: screen;
+}
+
+.vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(120% 120% at 50% 50%, rgba(0,0,0,0) 40%, rgba(0,0,0,0.65) 85%);
+}
+
+.headerWrap {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 980px;
+  margin: 0 auto clamp(28px, 4vw, 48px);
+}
+
+.title {
+  color: $sand;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  font-size: clamp(28px, 5vw, 56px);
+  font-weight: 700;
+  text-shadow: 0 1px 0 rgba(0,0,0,0.4);
+}
+
+.subtitle {
+  margin-top: 10px;
+  color: $linen;
+  font-size: clamp(15px, 2.2vw, 20px);
+  opacity: 0.9;
+}
+
+/* GRID */
+.grid {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 18px;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.card {
+  position: relative;
+  grid-column: span 4;
+  aspect-ratio: 4/5;
+  border-radius: 22px;
+  overflow: hidden;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border: 1px solid rgba(255,255,255,0.06);
+  cursor: pointer;
+  isolation: isolate;
+  transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    border-color: rgba(217,185,125,0.3);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.45);
+  }
+
+  @media (max-width: 1100px) { grid-column: span 6; }
+  @media (max-width: 680px)  { grid-column: span 12; }
+}
+
+.cardMedia {
+  position: absolute; inset: 0;
+  z-index: 0;
+  transform: scale(1.02);
+  transition: transform .5s ease;
+
+  .card:hover & {
+    transform: scale(1.06);
+  }
+}
+
+.cardGradient {
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(180deg, rgba(0,0,0,0.0) 50%, rgba(0,0,0,0.65) 100%),
+    linear-gradient(0deg, rgba(0,0,0,0.2), transparent 60%);
+  z-index: 1;
+}
+
+.cardContent {
+  position: absolute; inset: auto 16px 16px 16px;
+  z-index: 2; color: $sand;
+}
+
+.badge {
+  display: inline-block;
+  background: rgba(0,0,0,0.45);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: $sand;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  letter-spacing: .2px;
+  margin-bottom: 10px;
+}
+
+.cardTitle {
+  font-size: clamp(18px, 2.8vw, 22px);
+  line-height: 1.2;
+  margin: 0;
+  text-shadow: 0 1px 0 rgba(0,0,0,.4);
+}
+
+.cardTagline {
+  color: $linen;
+  font-size: 14px;
+  margin-top: 6px;
+  opacity: .95;
+}
+
+.meta {
+  display: flex; gap: 10px; align-items: center;
+  margin-top: 10px;
+}
+
+.region { color: $linen; font-size: 12px; opacity: .9; }
+.price  { color: $gold; font-size: 12px; }
+
+/* hover rim */
+.hoverRing {
+  position: absolute; inset: 0;
+  border: 1.5px solid rgba(217,185,125,0.35);
+  border-radius: 22px;
+  pointer-events: none;
+  opacity: 0;
+}
+
+/* ——— Modal ——— */
+.modalRoot {
+  position: fixed; inset: 0; z-index: 60;
+}
+
+.backdropBlur {
+  position: absolute; inset: 0;
+  background: rgba(0,0,0,0.55);
+  backdrop-filter: blur(6px);
+}
+
+.modal {
+  position: absolute; inset: 4% 50% auto 50%;
+  transform: translateX(-50%);
+  width: min(980px, calc(100% - 32px));
+  background: $ink-2;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.55);
+}
+
+.modalImageWrap {
+  position: relative; width: 100%; height: clamp(220px, 36vh, 340px);
+}
+
+.modalImageVignette {
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.05), rgba(0,0,0,0.55));
+}
+
+.closeBtn {
+  position: absolute; top: 12px; right: 12px;
+  width: 36px; height: 36px; border-radius: 999px;
+  background: rgba(0,0,0,0.55);
+  color: $sand; border: 1px solid rgba(255,255,255,0.2);
+  cursor: pointer;
+}
+
+.modalHeaderText {
+  position: absolute; left: 20px; bottom: 16px; right: 20px; color: $sand;
+}
+
+.modalBadge {
+  display: inline-block; font-size: 12px; padding: 6px 10px;
+  border-radius: 999px; background: rgba(0,0,0,0.45);
+  border: 1px solid rgba(255,255,255,0.2); margin-bottom: 10px;
+}
+
+.modalTitle {
+  margin: 0; font-size: clamp(20px, 4vw, 28px); line-height: 1.2;
+  text-shadow: 0 1px 0 rgba(0,0,0,.4);
+}
+
+.modalRegion { color: $linen; font-size: 13px; margin-top: 6px; }
+
+.modalBody {
+  padding: 18px 20px 22px;
+  color: $linen; font-size: 15px;
+}
+
+.modalDesc { color: $sand; margin: 0 0 12px 0; }
+
+.modalList {
+  margin: 10px 0 18px 18px; padding: 0;
+  li { margin: 6px 0; }
+}
+
+.modalActions {
+  display: flex; gap: 10px; flex-wrap: wrap;
+}
+
+.primaryBtn, .secondaryBtn {
+  appearance: none; border-radius: 999px; padding: 10px 16px;
+  font-weight: 600; letter-spacing: .2px; cursor: pointer; text-decoration: none;
+}
+
+.primaryBtn {
+  background: $gold; color: #161515; border: 1px solid rgba(0,0,0,0.2);
+}
+.secondaryBtn {
+  background: transparent; color: $sand; border: 1px solid rgba(255,255,255,0.18);
+}
+
+@media (max-width: 720px) {
+  .exploreSection { padding: 80px 14px; }
+}
