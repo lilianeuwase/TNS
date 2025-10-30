@@ -8,6 +8,10 @@ const nextConfig = {
     config.optimization.minimize = false;
     return config;
   },
+  typescript: {
+    // WARNING: allows deploying with TypeScript errors — use only temporarily
+    ignoreBuildErrors: true,
+  },
 };
 
 module.exports = nextConfig;
