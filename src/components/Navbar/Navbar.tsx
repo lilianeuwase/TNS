@@ -17,7 +17,7 @@ const Navbar = () => {
             transition: {
                 staggerChildren: 0.1,
                 ease: "easeOut",
-                type: "spring",
+                type: "spring" as const,
             },
         },
         closed: {
@@ -27,7 +27,7 @@ const Navbar = () => {
                 duration: 0,
             },
         },
-    };
+    } as const;
 
     const listItemVariants = {
         open: {
