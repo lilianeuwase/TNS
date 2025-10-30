@@ -58,61 +58,57 @@ export default function HeroSection() {
         0
       );
 
-      // --- Text fade up and out ---
-      tl.to(
-        sectionRef.current?.querySelector("h1"),
-        {
+      // --- Text fade up and out (null-safe) ---
+      const h1 = sectionRef.current?.querySelector("h1");
+      const p = sectionRef.current?.querySelector("p");
+      const imageContainer = sectionRef.current?.querySelector(".image-container");
+      const image = sectionRef.current?.querySelector(".image-container img");
+
+      if (h1) {
+        tl.to(h1, {
           y: -120,
           opacity: 0,
           duration: 1.2,
           ease: "power3.inOut",
-        },
-        0.2
-      ).to(
-        sectionRef.current?.querySelector("p"),
-        {
+        }, 0.2);
+      }
+
+      if (p) {
+        tl.to(p, {
           y: -100,
           opacity: 0,
           duration: 1.2,
           ease: "power3.inOut",
-        },
-        0.25
-      );
+        }, 0.25);
+      }
 
-      // --- Image expand & slide into full width ---
-      // --- Image expand & slide into full width ---
-      // --- Image expand to full screen ---
-      // --- Image expand to full screen ---
-      tl.to(
-        sectionRef.current?.querySelector(".image-container"),
-        {
+      if (imageContainer) {
+        tl.to(imageContainer, {
           width: "100vw",
-          marginLeft: "-40vw", // Pull it left to cover the text area
+          marginLeft: "-40vw",
           duration: 2,
           ease: "power3.inOut",
-        },
-        0.3
-      )
-      .to(
-        sectionRef.current?.querySelector(".image-container img"),
-        {
+        }, 0.3);
+      }
+
+      if (image) {
+        tl.to(image, {
           scale: 1.15,
           xPercent: 0,
           duration: 1,
           ease: "power3.inOut",
-        },
-        0.3
-      );
-      tl.to(
-        endTextRef.current,
-        {
+        }, 0.3);
+      }
+
+      if (endTextRef.current) {
+        tl.to(endTextRef.current, {
           autoAlpha: 1,
           y: 0,
           duration: 0.8,
           ease: "power2.out",
-        },
-        ">" // starts right after the image finishes expanding to full screen
-      );
+        }, ">");
+      }
+
     }, sectionRef);
 
     return () => ctx.revert();
