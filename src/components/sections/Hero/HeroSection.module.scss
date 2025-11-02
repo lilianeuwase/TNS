@@ -24,10 +24,12 @@
 
   h1 {
     font-size: clamp(2.5rem, 5vw, 4.5rem);
-    font-weight: 700;
+    font-weight: 800;
     color: #A79986; // sand
-    margin-bottom: 2rem;
+    margin-bottom: 5rem;
     line-height: 1.2;
+    
+    // text-transform: uppercase;
   }
 
   p {

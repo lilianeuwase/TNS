@@ -17,8 +17,8 @@ export default function HScroll() {
     { src: "/images/Volcanoes.jpg", label: "Volcanoes" },
     { src: "/images/Nyungwe.jpg", label: "Nyungwe Forest" },
     { src: "/images/Gorilla.jpg", label: "Gorillas Trekking" },
-    { src: "/images/Car Safari5.jpg", label: "Masai Mara" },
-    { src: "/images/Car Safari.jpg", label: "Serengeti" },
+    // { src: "/images/Car Safari5.jpg", label: "Masai Mara" },
+    // { src: "/images/Car Safari.jpg", label: "Serengeti" },
     { src: "/images/Kivu.jpg", label: "Lake Kivu" },
   ];
 
@@ -53,7 +53,7 @@ export default function HScroll() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full bg-black py-32 overflow-hidden"
+      className="relative w-full bg-[#011f14] py-32 overflow-hidden"
     >
       <div
         ref={scrollContainerRef}
@@ -74,7 +74,7 @@ export default function HScroll() {
 
             {/* Text Overlay */}
             <div className="absolute inset-0 flex items-center justify-center bg-black/30">
-              <h2 className="text-white text-6xl md:text-7xl font-bold uppercase tracking-wider drop-shadow-lg">
+              <h2 className="text-sand text-6xl md:text-7xl font-bold uppercase tracking-wider drop-shadow-lg">
                 {item.label}
               </h2>
             </div>

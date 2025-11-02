@@ -132,8 +132,9 @@ export default function HeroSection() {
         className={styles.textBlock}
       >
         <div>
-          <h1>Discover Rwanda with TNS Tours Company</h1>
-          <p>Your journey to the Land of a Thousand Hills begins here.</p>
+          <h1>From Hills to Heart, Discover with Us</h1>
+        
+          <p>Travel deeper into Rwanda’s heart. From the mist of Volcanoes National Park to the calm waters of Lake Kivu, every destination tells a story waiting to become yours.</p>
         </div>
       </motion.div>
 
@@ -146,7 +147,7 @@ export default function HeroSection() {
         <img src="/images/Car Safari3.jpg" alt="Car Safari in Rwanda"   style={{ filter: "brightness(0.7)" }} />
       </motion.div>
       <div ref={endTextRef} className={styles.endText}>
-        Let's Dive in Together
+        From Hills to Heart
         {/* <SplitText
           text="Hello, GSAP!"
           className="text-2xl font-semibold text-center"
