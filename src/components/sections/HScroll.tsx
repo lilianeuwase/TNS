@@ -13,9 +13,9 @@ export default function HScroll() {
 
   // Define your image file names and labels
   const images = [
-    { src: "/images/Akagera.jpg", label: "Akagera Park" },
+    { src: "/images/Akagera.jpg", label: "Akagera National Park" },
     { src: "/images/Volcanoes.jpg", label: "Volcanoes" },
-    { src: "/images/Nyungwe.jpg", label: "Nyungwe Forest" },
+    { src: "/images/Nyungwe.jpg", label: "Nyungwe National Forest" },
     { src: "/images/Gorilla.jpg", label: "Gorillas Trekking" },
     // { src: "/images/Car Safari5.jpg", label: "Masai Mara" },
     // { src: "/images/Car Safari.jpg", label: "Serengeti" },
@@ -73,8 +73,11 @@ export default function HScroll() {
             />
 
             {/* Text Overlay */}
-            <div className="absolute inset-0 flex items-center justify-center bg-black/30">
-              <h2 className="text-sand text-6xl md:text-7xl font-bold uppercase tracking-wider drop-shadow-lg">
+            <div className="absolute inset-0 flex items-center justify-center bg-black/30 text-center px-4">
+              <h2
+                className="text-sand font-bold uppercase tracking-wider drop-shadow-lg
+                           text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight"
+              >
                 {item.label}
               </h2>
             </div>

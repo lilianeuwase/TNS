@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { useLenisScroll } from "@/hooks/useLenisScroll";
 import Loader from "./Loader";
 import Navbar from "@/components/Navbar/Navbar";
+import Footer from "@/components/Footer"
 
 export default function ClientLayout({
   children,
@@ -29,6 +30,7 @@ export default function ClientLayout({
     <>
       <Navbar />
       {children}
+       <Footer />
     </>
   );
 }

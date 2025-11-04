@@ -132,7 +132,7 @@ export default function HeroSection() {
         className={styles.textBlock}
       >
         <div>
-          <h1>From Hills to Heart, Discover with Us</h1>
+          <h1>Visit Rwanda: From Hills to Heart</h1>
         
           <p>Travel deeper into Rwanda’s heart. From the mist of Volcanoes National Park to the calm waters of Lake Kivu, every destination tells a story waiting to become yours.</p>
         </div>

@@ -30,7 +30,7 @@ const config: Config = {
         sm: "calc(var(--radius) - 4px)",
       },
 
-      // ✅ Add your marquee keyframes + animations here
+      // ✅ existing marquee keyframes
       keyframes: {
         "marquee-x": {
           from: { transform: "translateX(0)" },
@@ -40,10 +40,29 @@ const config: Config = {
           from: { transform: "translateY(0)" },
           to: { transform: "translateY(calc(-100% - var(--gap)))" },
         },
+
+        // ✅ newly added reveal animations
+        "reveal-up": {
+          "0%": { opacity: "0", transform: "translateY(20px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+        "reveal-down": {
+          "0%": { opacity: "0", transform: "translateY(-20px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+        "content-blur": {
+          "0%": { filter: "blur(4px)" },
+          "100%": { filter: "blur(0)" },
+        },
       },
       animation: {
         "marquee-horizontal": "marquee-x var(--duration) infinite linear",
         "marquee-vertical": "marquee-y var(--duration) infinite linear",
+
+        // ✅ newly added reveal animations
+        "reveal-up": "reveal-up 1s ease forwards",
+        "reveal-down": "reveal-down 1s ease forwards",
+        "content-blur": "content-blur 1s ease forwards",
       },
     },
   },

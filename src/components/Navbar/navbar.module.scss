@@ -176,3 +176,66 @@
         display: initial;
     }
 }
+
+/* -------------------- MOBILE FIXES -------------------- */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0 1rem;
+    top: 0;
+    height: auto;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .navigation {
+    padding: 3rem 1rem 0 1rem !important; /* pushes content down nicely */
+    width: 100% !important;
+    display: flex;
+    align-items: center;
+    justify-content: space-between !important;
+    position: relative;
+
+    .logo {
+      height: 45px !important; /* ✅ smaller logo for phones */
+      width: auto;
+      transform: translateX(0) !important; /* ✅ bring back into view */
+      margin-left: 0;
+    }
+
+    .burgerMenuContainer {
+      width: 35px !important; /* ✅ smaller hamburger */
+      height: 22px !important;
+         margin-right: 0.5rem;
+      .burgerMenu,
+      .burgerMenu::before,
+      .burgerMenu::after {
+        width: 35px !important;
+        height: 3px !important; /* thinner bars */
+      }
+
+      .burgerMenu::before {
+        transform: translateY(-8px);
+      }
+
+      .burgerMenu::after {
+        transform: translateY(8px);
+      }
+    }
+  }
+
+  /* When menu is open, keep consistent mobile alignment */
+  .navbar.active {
+    .navigation {
+      padding-top: 2rem !important;
+      .burgerMenuContainer {
+        top: 0;
+        right: 0;
+      }
+    }
+  }
+
+  /* Optional: smaller menu text on tiny screens */
+  .content ul li a {
+    font-size: 2rem;
+  }
+}

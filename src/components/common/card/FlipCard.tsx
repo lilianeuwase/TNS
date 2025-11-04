@@ -45,10 +45,11 @@ export default function FlipCard({
             {subtitle && (
               <p className="text-xs text-gray-300 mt-1 line-clamp-2">{subtitle}</p>
             )}
+            <p className="text-[8px] font-semibold tracking-widest text-sand mt-2 opacity-80 group-hover:text-sand transition">
+              Click for more info →
+            </p>
           </div>
         </div>
-
-        {/* ---------- Back ---------- */}
         <div
           className={cn(
             "absolute h-full w-full rounded-2xl bg-black/80 p-4 text-slate-200 [backface-visibility:hidden] overflow-y-auto",

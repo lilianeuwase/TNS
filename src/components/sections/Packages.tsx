@@ -20,7 +20,21 @@ export default function PackagesSection() {
       </div>
 
       {/* Flip Cards */}
-      <div className="z-10 mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 w-full max-w-6xl">
+      <div
+        className="
+          z-10 mt-16
+          grid
+          grid-cols-1
+          sm:grid-cols-2
+          md:grid-cols-3
+          lg:grid-cols-4
+          gap-10
+          w-full
+          max-w-6xl
+          mx-auto
+          place-items-center
+        "
+      >
         {packages.map((pkg, index) => (
           <FlipCard
             key={index}
@@ -38,6 +52,42 @@ export default function PackagesSection() {
 
 /* ----------------- Package Data ------------------ */
 const packages = [
+  {
+    title: "Kigali City Discovery",
+    subtitle: "1 Day • Kigali Highlights",
+    image: "/images/Kigali.jpg",
+    description: `
+      Explore Kigali’s heart — Genocide Memorial, Nyamirambo streets, local markets, and sunset from Mount Kigali. 
+      Highlights: History, culture, skyline views.
+    `,
+  },
+  {
+    title: "Nyungwe Canopy & Zipline",
+    subtitle: "1 Day • Nyungwe National Park",
+    image: "/images/Canopy.webp",
+    description: `
+      Glide above the rainforest on Nyungwe’s canopy walkway and zipline adventure. 
+      Highlights: Rainforest, zipline, tea hills.
+    `,
+  },
+  {
+    title: "Fazenda Sengha Adventure",
+    subtitle: "1 Day • Mount Kigali",
+    image: "/images/Fazenda.webp",
+    description: `
+      A day of thrill at Fazenda Sengha — horse riding, zipline, archery, and hillside views. 
+      Highlights: Adventure, nature, fun.
+    `,
+  },
+  {
+    title: "Lake Muhazi Escape",
+    subtitle: "1 Day • Lake Muhazi",
+    image: "/images/Muhazi.jpg",
+    description: `
+      Relax by Lake Muhazi with kayaking, boat rides, and lakeside lunch. 
+      Highlights: Water, peace, scenery.
+    `,
+  },
   {
     title: "Echoes of the Volcano",
     subtitle: "2 Days • Volcanoes NP & Twin Lakes",
