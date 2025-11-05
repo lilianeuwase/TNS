@@ -106,6 +106,7 @@
     flex-direction: column;
     min-height: auto;
     overflow: visible; /* prevent clipping */
+     padding-top: calc(100px + env(safe-area-inset-top));
   }
 
   .textBlock {
@@ -114,7 +115,7 @@
     text-align: center;
     justify-content: flex-start;
     align-items: center;
-    // margin-bottom: 6rem;
+    padding-top: 2rem; 
 
     h1 {
       font-size: clamp(1.75rem, 7vw, 2.75rem);
