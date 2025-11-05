@@ -118,6 +118,7 @@ export default function Expandable({ list = items, autoPlay = true, className }:
   }, [autoPlay, visibleList.length, isHovering]);
 
   return (
+    <section id="gallery">
     <div
       className={cn(
         "flex h-[40rem] w-full gap-1 overflow-hidden",
@@ -140,5 +141,6 @@ export default function Expandable({ list = items, autoPlay = true, className }:
         />
       ))}
     </div>
+      </section>
   );
 }

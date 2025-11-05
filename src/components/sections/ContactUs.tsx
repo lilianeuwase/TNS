@@ -5,7 +5,7 @@ import { FaPhone, FaEnvelope, FaLocationDot } from "react-icons/fa6";
 
 const ContactInfoBlock = () => {
   return (
-    <section className="relative flex items-center justify-center bg-night text-sand px-8 py-24 overflow-hidden">
+    <section id="contact" className="relative flex items-center justify-center bg-night text-sand px-8 py-24 overflow-hidden">
       <div className="relative z-10 w-full max-w-xl space-y-10 text-center">
         {/* Tag */}
         <div>

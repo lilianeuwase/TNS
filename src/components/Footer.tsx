@@ -77,14 +77,17 @@ export default function Footer() {
         <div className="mx-auto max-w-7xl px-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-sand/60">
           <span>© {new Date().getFullYear()} TNS Tour Company Ltd. All rights reserved.</span>
 
-          <a
-            href="https://8linescode.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-sand underline decoration-clay/60 hover:decoration-ember"
-          >
-            Developed by 8 Lines Code
-          </a>
+          <span>
+            Developed by{" "}
+            <a
+              href="https://8linescode.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline decoration-clay/60 hover:decoration-ember hover:text-sand"
+            >
+              8 Lines Code
+            </a>
+          </span>
         </div>
       </div>
     </footer>

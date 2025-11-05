@@ -5,7 +5,7 @@ import FlipCard from "@/components/common/card/FlipCard";
 
 export default function PackagesSection() {
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-charcoal via-clay to-sand text-sand px-6 py-20 overflow-hidden">
+    <section id="packages" className="relative min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-charcoal via-clay to-sand text-sand px-6 py-20 overflow-hidden">
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/50 z-0" />
 

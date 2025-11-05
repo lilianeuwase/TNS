@@ -6,6 +6,7 @@ import AnimatedModalDemo from "@/components/common/AnimatedModal";
 
 export const TextParallaxContentExample = () => {
   return (
+    <section id="about">
     <div className="bg-night">
       <TextParallaxContent
         imgUrl="/images/mission.jpg"
@@ -22,6 +23,7 @@ export const TextParallaxContentExample = () => {
         <VisionContent />
       </TextParallaxContent>
     </div>
+      </section>
   );
 };
 

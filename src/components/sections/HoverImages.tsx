@@ -126,6 +126,7 @@ const MouseImageTrail = ({
   };
 
   return (
+    <section id="photos">
     <div
       ref={scope}
       className="relative overflow-hidden"
@@ -149,5 +150,6 @@ const MouseImageTrail = ({
         />
       ))}
     </div>
+      </section>
   );
 };
