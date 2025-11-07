@@ -37,11 +37,10 @@ export default function HeroSection() {
         scrollTrigger: {
           trigger: sectionRef.current,
           start: "top top",
-          end: "+=1500",
+          end: "+=400",  // ← Reduced from 1500 to 400
           pin: true,
-          scrub: 1.5,
+          scrub: 1,      // ← Also reduce scrub from 1.5 to 1 for snappier response
           anticipatePin: 1,
-          // pinSpacing: false,
         },
       });
       gsap.set(endTextRef.current, { autoAlpha: 0, y: 20 });
