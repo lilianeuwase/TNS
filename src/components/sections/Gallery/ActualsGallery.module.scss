@@ -213,8 +213,16 @@
 }
 
 @media (max-width: 768px) {
+  .inner {
+    width: 98vw;              /* almost edge-to-edge on phones */
+  }
+  
+  .frame {
+    aspect-ratio: 3 / 4;      /* taller gallery on phones */
+    border-radius: 16px;      /* optional: slightly tighter on mobile */
+  }
   .stage {
-    padding: 0.75rem;
+    padding: 0.5rem; 
     grid-template-columns: auto 1fr auto;
   }
 
