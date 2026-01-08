@@ -71,7 +71,7 @@ const items = [
   },
   {
     image: "/images/Akagera3.jpg",
-    title: "Kigali",
+    title: "Greenary",
   },
   {
     image: "/images/Rwanda.jpg",

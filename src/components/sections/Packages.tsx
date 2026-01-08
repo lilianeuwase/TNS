@@ -5,17 +5,22 @@ import FlipCard from "@/components/common/card/FlipCard";
 
 export default function PackagesSection() {
   return (
-    <section id="packages" className="relative min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-charcoal via-clay to-sand text-sand px-6 py-20 overflow-hidden">
+    <section
+      id="packages"
+      className="relative min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-charcoal via-clay to-sand text-sand px-6 py-20 overflow-hidden"
+    >
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/50 z-0" />
 
       {/* Section Header */}
-      <div className="z-10 text-center max-w-3xl mx-auto">
-        <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight uppercase text-clay">
+      <div className="z-10 text-center max-w-4xl mx-auto">
+        <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight uper personercase text-clay">
           Explore Rwanda, One Journey at a Time
         </h1>
         <p className="mt-6 text-lg text-gray-300">
-          Choose from our signature journeys or design your own adventure across Rwanda’s breathtaking landscapes.
+          Choose from real, tested experiences — Kigali, wildlife, volcanoes,
+          forests, lakes, and culture. Prices shown are per person and vary by
+          group size.
         </p>
       </div>
 
@@ -23,14 +28,12 @@ export default function PackagesSection() {
       <div
         className="
           z-10 mt-16
-          grid
-          grid-cols-1
+          grid grid-cols-1
           sm:grid-cols-2
-          md:grid-cols-3
-          lg:grid-cols-4
+          xl:grid-cols-3
           gap-10
           w-full
-          max-w-6xl
+          max-w-[1600px]
           mx-auto
           place-items-center
         "
@@ -50,143 +53,93 @@ export default function PackagesSection() {
   );
 }
 
-/* ----------------- Package Data ------------------ */
+/* ----------------- Package Data (from your PDF) ------------------ */
 const packages = [
   {
-    title: "Kigali City Discovery",
-    subtitle: "1 Day • Kigali Highlights",
+    title: "Full-Day Kigali City Tour",
+    subtitle: "From $50 per person • 5–6 hrs • Kigali",
     image: "/images/Kigali.jpg",
-    description: `
-      Explore Kigali’s heart — Genocide Memorial, Nyamirambo streets, local markets, and sunset from Mount Kigali. 
-      Highlights: History, culture, skyline views.
-    `,
+    description:
+      "Inclusive: entry fees, water, transport, guiding.\nHighlights: Kigali Genocide Memorial, Mount Kigali viewpoints, Kimironko market and city culture.\nGood for: first-timers who want the full Kigali story in one day.\nPrice range: $50–$150 per person (depends on group size).",
   },
   {
-    title: "Nyungwe Canopy & Zipline",
-    subtitle: "1 Day • Nyungwe National Park",
-    image: "/images/Canopy.webp",
-    description: `
-      Glide above the rainforest on Nyungwe’s canopy walkway and zipline adventure. 
-      Highlights: Rainforest, zipline, tea hills.
-    `,
+    title: "Half-Day Kigali City Tour",
+    subtitle: "From $30 per person • 3–4 hrs • Kigali",
+    image: "/images/Half.jpg",
+    description:
+      "Inclusive: entry fees, water, transport, guiding.\nHighlights: Kigali Genocide Memorial + Kimironko market / local city stops.\nGood for: tight schedules (morning or afternoon).\nPrice range: $30–$80 per person (depends on group size).",
   },
   {
-    title: "Fazenda Sengha Adventure",
-    subtitle: "1 Day • Mount Kigali",
-    image: "/images/Fazenda.webp",
-    description: `
-      A day of thrill at Fazenda Sengha — horse riding, zipline, archery, and hillside views. 
-      Highlights: Adventure, nature, fun.
-    `,
+    title: "Kigali City by Night",
+    subtitle: "From $60 per person • 3–7 hrs • Kigali Nightlife",
+    image: "/images/Night Kigali.png",
+    description:
+      "Inclusive: water, transport, guiding.\nHighlights: night views (Mount Kigali / Rebero), sundowner spots, Nyamirambo car-free vibes, clubs.\nGood for: couples & friends who want Kigali after-dark.\nPrice range: $60–$200 per person (depends on group size).",
   },
   {
-    title: "Lake Muhazi Escape",
-    subtitle: "1 Day • Lake Muhazi",
-    image: "/images/Muhazi.jpg",
-    description: `
-      Relax by Lake Muhazi with kayaking, boat rides, and lakeside lunch. 
-      Highlights: Water, peace, scenery.
-    `,
+    title: "Airport Transfer (Kigali)",
+    subtitle: "From $10 per person • Pickup / Drop-off • Kigali",
+    image: "/images/Airport.jpg",
+    description:
+      "Airport pickup: staff meets you at arrivals with your name/company sign.\nAirport drop-off: pickup at hotel ~1 hour before departure (reserve in advance).\nPrice range: $10–$20 per person (depends on group size).",
   },
   {
-    title: "Echoes of the Volcano",
-    subtitle: "2 Days • Volcanoes NP & Twin Lakes",
-    image: "/images/Akagera2.jpg",
-    description: `
-      Day 1 – Kigali to Volcanoes NP; cultural village visit. 
-      Day 2 – Gorilla trekking & canoe at Twin Lakes before returning. 
-      Highlights: Gorillas, Virunga views, local culture.
-    `,
+    title: "Akagera Safari Day Trip",
+    subtitle: "From $200 per person • 10–13 hrs • Akagera NP",
+    image: "/images/Akagera.jpg",
+    description:
+      "Inclusive: park entry, water, transport, guiding, packed lunch.\nHighlights: classic game drive with Big 5 potential + birdlife.\nOptional: Lake Ihema boat trip, night game drive.\nPrice range: $200–$515 per person (depends on group size).",
   },
   {
-    title: "Forest Whispers",
-    subtitle: "3 Days • Nyungwe Forest & Tea Estates",
-    image: "/images/Nyungwe2.jpg",
-    description: `
-      Day 1 – Kigali to Nyungwe via Huye, museum visit. 
-      Day 2 – Chimpanzee trek & canopy walk. 
-      Day 3 – Tea tasting & forest walk before return. 
-      Highlights: Chimps, rainforest, tea culture.
-    `,
+    title: "Hot Air Balloon (Akagera)",
+    subtitle: "From $650 per person • 10–13 hrs • Akagera NP",
+    image: "/images/Hot air.jpg",
+    description:
+      "Inclusive: park entry, water, transport, guiding, packed lunch.\nHighlights: aerial views of Lake Ihema, giraffe plains, hills/peninsulas and wildlife.\nGood for: once-in-a-lifetime experience.\nPrice range: $650–$910 per person (depends on group size).",
   },
   {
-    title: "Savannah Sunrise",
-    subtitle: "3 Days • Akagera National Park",
-    image: "/images/Akagera4.jpg",
-    description: `
-      Day 1 – Drive to Akagera, sunset boat on Lake Ihema. 
-      Day 2 – Full-day game drive (Big Five). 
-      Day 3 – Morning birdwatching & return. 
-      Highlights: Lions, rhinos, elephants, giraffes.
-    `,
+    title: "Gorilla Trekking (Volcanoes)",
+    subtitle: "From $1,600 per person • ~13 hrs • Volcanoes NP",
+    image: "/images/Gorilla.jpg",
+    description:
+      "Inclusive: gorilla permit, water, transport, guiding, lunch.\nHighlights: the ultimate Rwanda experience — mountain gorillas up close.\nGood for: bucket-list travelers.\nPrice range: $1,600–$2,015 per person (depends on group size).",
   },
   {
-    title: "Valley of Echoes",
-    subtitle: "5 Days • Volcanoes • Kivu • Nyungwe",
-    image: "/images/Gisenyi.jpg",
-    description: `
-      Day 1 – Kigali City Tour & Memorial. 
-      Day 2 – Gorilla trek in Volcanoes NP. 
-      Day 3 – Lake Kivu relaxation. 
-      Day 4 – Travel to Nyungwe, canopy walk. 
-      Day 5 – Return to Kigali. 
-      Highlights: Gorillas, lakes, forest.
-    `,
+    title: "Golden Monkey Trek",
+    subtitle: "From $200 per person • ~3 hrs • Volcanoes NP",
+    image: "/images/Monkeys.jpg",
+    description:
+      "Inclusive: permits, water, transport, guiding, lunch.\nHighlights: rare and playful golden monkeys in the Virunga Mountains.\nGood for: a shorter trek option.\nPrice range: $200–$315 per person (depends on group size).",
   },
   {
-    title: "Trail of Fire",
-    subtitle: "5 Days • Bisoke • Karisimbi • Musanze Caves",
+    title: "Dian Fossey Tomb Hike",
+    subtitle: "From $180 per person • ~13 hrs • Volcanoes NP",
+    image: "/images/DF Hikey.jpg",
+    description:
+      "Inclusive: park entry, water, transport, guiding, packed lunch.\nHighlights: trek to Karisoke area + Dian Fossey site; scenic forest walk.\nGood for: history + conservation lovers.\nPrice range: $180–$414 per person (depends on group size).",
+  },
+  {
+    title: "Iby’Iwacu Cultural Village",
+    subtitle: "From $150 per person • ~13 hrs • Volcanoes Area",
+    image: "/images/Volcanoes.jpg",
+    description:
+      "Inclusive: entry fee, water, transport, guiding, lunch.\nHighlights: local traditions, dances, lifestyle experiences around Volcanoes NP.\nGood for: culture + community.\nPrice range: $150–$375 per person (depends on group size).",
+  },
+  {
+    title: "Mount Bisoke Hike",
+    subtitle: "From $180 per person • ~13 hrs • Volcanoes NP",
     image: "/images/Bisoke.jpg",
-    description: `
-      Day 1 – Arrival & Musanze Caves exploration. 
-      Day 2 – Bisoke Crater Hike. 
-      Day 3-4 – Two-day Karisimbi ascent. 
-      Day 5 – Dian Fossey site & return. 
-      Highlights: Volcano hikes, lava trails, adventure.
-    `,
+    description:
+      "Inclusive: park entry fee, water, transport, guiding, lunch.\nHighlights: one-day volcano hike adventure in Volcanoes NP.\nGood for: hikers who want a strong challenge in one day.\nPrice range: $180–$414 per person (depends on group size).",
   },
   {
-    title: "Healing Hills",
-    subtitle: "6 Days • Rusizi Hot Springs • Nyungwe • Kivu",
-    image: "/images/Kivubelt.jpg",
-    description: `
-      Day 1 – Kigali to Nyungwe; evening forest walk. 
-      Day 2 – Chimp trek & canopy walkway. 
-      Day 3 – Rusizi Hot Springs soak. 
-      Day 4 – Lake Kivu kayaking. 
-      Day 5 – Gishwati–Mukura hike. 
-      Day 6 – Return to Kigali. 
-      Highlights: Wellness, nature, serenity.
-    `,
+    title: "Nyungwe Canopy Walk",
+    subtitle: "From $280 per person • ~13 hrs • Nyungwe NP",
+    image: "/images/Nyungwe.jpg",
+    description:
+      "Inclusive: transport, guiding, lunch, cultural village fee.\nHighlights: the famous suspension canopy walkway above the rainforest.\nGood for: nature + views + unique experience.\nPrice range: $280–$450 per person (depends on group size).",
   },
-  {
-    title: "Riftline Odyssey",
-    subtitle: "8 Days • Volcanoes • Nyiragongo • Kivu",
-    image: "/images/Volcanoes1.jpg",
-    description: `
-      Day 1 – Kigali arrival. 
-      Day 2 – Golden monkey trek. 
-      Day 3-4 – Nyiragongo Volcano climb & crater camp. 
-      Day 5-6 – Relax at Lake Kivu. 
-      Day 7-8 – Tea estates & waterfalls. 
-      Highlights: Lava lake, gorillas, mountain adventure.
-    `,
-  },
-  {
-    title: "Customize Your Journey",
-    subtitle: "Design Your Perfect Rwanda Trip",
-    image: "/images/Customize.jpg",
-    description: `
-      Choose from: 
-      • Volcanoes National Park  
-      • Akagera National Park  
-      • Nyungwe Forest  
-      • Gishwati–Mukura Park  
-      • Lake Kivu (Rubavu, Karongi, Rusizi)  
-      • Twin Lakes (Burera & Ruhondo)  
-      • Kigali City & Museums  
-      • King’s Palace & Ethnographic Museum  
-      Create your dream itinerary — from wildlife to culture, lakes to mountains.
-    `,
-  },
+
+  // If you want to swap one card for Lake Kivu / Tea / Coffee / Chimps,
+  // tell me which 1–2 you want to feature and I’ll fit them in cleanly.
 ];

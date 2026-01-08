@@ -1,0 +1,232 @@
+.section {
+  width: 100%;
+  padding: clamp(3rem, 6vw, 6rem) 0;
+  background: #000; // matches your dark vibe
+}
+
+.inner {
+  width: min(1400px, 94vw); /* wider */
+  margin: 0 auto;
+}
+
+.header {
+  margin-bottom: 1.5rem;
+}
+
+.title {
+  font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+  font-weight: 900;
+  letter-spacing: 0.02em;
+  color: #A79986; // sand
+  margin: 0 0 0.5rem 0;
+  text-transform: uppercase;
+}
+
+.subtitle {
+  color: rgba(255, 255, 255, 0.72);
+  margin: 0;
+  max-width: 65ch;
+  line-height: 1.6;
+}
+
+.card {
+  border-radius: 22px;
+  overflow: hidden;
+  position: relative;
+
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.65);
+}
+
+.stage {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 0.75rem;
+  align-items: center;
+  padding: 1rem;
+}
+
+.navBtn {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(0, 0, 0, 0.35);
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 2rem;
+  line-height: 1;
+
+  cursor: pointer;
+  transition: transform 0.18s ease, background 0.18s ease, border 0.18s ease;
+}
+
+.navBtn:hover {
+  transform: translateY(-1px);
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+}
+
+.navBtn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.frame {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+
+  background: radial-gradient(
+    circle at 20% 15%,
+    rgba(167, 153, 134, 0.14),
+    rgba(0, 0, 0, 0.9) 60%
+  );
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  user-select: none;
+}
+
+.imageCover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  user-select: none;
+}
+
+.imageContain {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;     /* ✅ zoom out (no cutting) */
+  object-position: center;
+  display: block;
+  user-select: none;
+  padding: 14px;           /* gives breathing room */
+}
+
+/* Optional: make "contain" mode still feel cinematic */
+.frame {
+  /* keep your current frame styles */
+}
+
+.backdrop {
+  position: absolute;
+  inset: 0;
+  transform: scale(1.08);
+  filter: blur(18px);
+  opacity: 0.35;
+}
+
+.backdrop img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.counter {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+
+  padding: 0.35rem 0.6rem;
+  border-radius: 999px;
+
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.9rem;
+  letter-spacing: 0.02em;
+}
+
+.counterSep {
+  opacity: 0.6;
+  margin: 0 0.35rem;
+}
+
+.empty {
+  height: 100%;
+  display: grid;
+  place-content: center;
+  padding: 2rem;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.emptyHint {
+  margin-top: 0.5rem;
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 0.95rem;
+
+  code {
+    color: #A79986;
+  }
+}
+
+.thumbs {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0 1rem 1rem;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+.thumbBtn {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 14px;
+  padding: 4px;
+  cursor: pointer;
+  flex: 0 0 auto;
+  transition: transform 0.16s ease, border 0.16s ease, background 0.16s ease;
+}
+
+.thumbBtn:hover {
+  transform: translateY(-1px);
+  border-color: rgba(255, 255, 255, 0.22);
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.thumbActive {
+  border-color: rgba(167, 153, 134, 0.65);
+  box-shadow: 0 0 0 2px rgba(167, 153, 134, 0.12);
+}
+
+.thumbImg {
+  width: 74px;
+  height: 52px;
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+  user-select: none;
+}
+
+@media (max-width: 768px) {
+  .stage {
+    padding: 0.75rem;
+    grid-template-columns: auto 1fr auto;
+  }
+
+  .navBtn {
+    width: 42px;
+    height: 42px;
+    font-size: 1.8rem;
+    border-radius: 12px;
+  }
+
+  .thumbImg {
+    width: 64px;
+    height: 46px;
+  }
+}

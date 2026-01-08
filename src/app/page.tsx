@@ -11,6 +11,7 @@ import Whys from '@/components/sections/whys'
 import PackagesSection from '@/components/sections/Packages';
 import Expandable from '@/components/sections/Gallery';
 import ContactSection from "@/components/sections/ContactUs";
+import ActualsGallery from '@/components/sections/Gallery/ActualsGallery';
 
 
 export default function Home() {
@@ -19,6 +20,7 @@ export default function Home() {
       <HeroSection />
       <HScroll />
       <TextParallaxContentExample/>
+      <ActualsGallery/>
       <Whys/>
       <Expandable/>
       <PackagesSection/>

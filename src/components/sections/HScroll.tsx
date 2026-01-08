@@ -36,7 +36,7 @@ export default function HScroll() {
       scrollTrigger: {
         trigger: section,
         start: "center center",
-        end: () => `+=${totalWidth}`,
+        end: () => `+=${totalWidth/4}`,
         pin: true,
         scrub: 1.5,
         anticipatePin: 1,
