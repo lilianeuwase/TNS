@@ -24,3 +24,5 @@ yarn-error.log*
 # replit files
 .replit
 *.repl
+tsconfig.tsbuildinfo
+.local/
